@@ -1,6 +1,11 @@
 import "./App.css";
+import Home from "./pages/Home";
 function App() {
-  return <div className="bg-pink-300">App</div>;
+  return (
+    <div>
+      <Home />
+    </div>
+  );
 }
 
 export default App;
