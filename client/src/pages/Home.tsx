@@ -1,9 +1,10 @@
-import Login from "./Login";
+import { Dashboard } from "./Dashboard";
 
 const Home = () => {
   return (
     <div>
-      <Login />
+      {/* <Login /> */}
+      <Dashboard />
     </div>
   );
 };
