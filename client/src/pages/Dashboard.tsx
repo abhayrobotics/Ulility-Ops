@@ -1,6 +1,81 @@
 import { useState } from "react";
 import Modal from "../components/Modal";
 
+
+const grievancefields = [{
+  label: "Application/Reference",
+  type: "text",
+  variable: "application"
+}, {
+  label: "Name",
+  type: "text",
+  variable: "name"
+
+}, {
+  label: "Mobile",
+  type: "text",
+  variable: "mobile"
+
+}, {
+  label: "Address",
+  type: "text",
+  variable: "address"
+
+}, {
+  label: "Type of Work",
+  type: "text",
+  variable: "type"
+
+}, {
+  label: "Description",
+  type: "text",
+  variable: "description"
+
+}, {
+  label: "Priority",
+  type: "select",
+  variable: "priority",
+  selectOption: ["A", "B", "C"]
+
+
+}, {
+  label: "Special Instruction",
+  type: "text",
+  variable: "instruction"
+
+}, {
+  label: "Date",
+  type: "date",
+  variable: "date"
+}, {
+  label: "Initiator",
+  type: "select",
+  variable: "Initiator",
+  selectOption: ["A", "B", "C"]
+},{
+  label: "Currently Pending with",
+  type: "select",
+  variable: "currentStatus",
+  selectOption: ["A", "B", "C"]
+},{
+  label: "Received from",
+  type: "select",
+  variable: "ReceivedFrom",
+  selectOption: ["A", "B", "C"]
+},
+{
+  label: "Forwarded to",
+  type: "select",
+  variable: "ForwardedTo",
+  selectOption: ["A", "B", "C"]
+},
+{
+  label: "Current Status",
+  type: "select",
+  variable: "current Status",
+  selectOption: ["A", "B", "C"]
+}
+]
 const summaryCards = [
   {
     label: "Due today",
@@ -55,7 +130,7 @@ const nscProjects = [
 
 export const Dashboard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const [grievanceData, setGrievanceData] = useState([])
   return (
     <main className="min-h-screen bg-canvas px-4 py-6 text-slate-950 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
@@ -193,13 +268,14 @@ export const Dashboard = () => {
         title="Add New Project"
       >
         <form className="grid gap-4 sm:grid-cols-2">
+          {}
           <label className="block sm:col-span-2">
             <span className="text-sm font-medium text-slate-700">
-              Project name
+              Application no. / Reference
             </span>
             <input
               className="mt-2 h-11 w-full rounded border border-subtle bg-white px-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-ops-primary focus:ring-3 focus:ring-sky-100"
-              placeholder="Enter project name"
+              placeholder="Enter Application no."
               type="text"
             />
           </label>
