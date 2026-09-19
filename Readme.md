@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Setup
 
 ## Client
@@ -71,6 +70,3 @@ npm install -D prisma nodemon
   - components(resusable components)
   - hooks
   - pages
-=======
-j
->>>>>>> 6bdfd85efb66c957b0c0f01ee5637104d2277f06

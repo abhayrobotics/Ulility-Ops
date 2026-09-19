@@ -1,81 +1,84 @@
 import { useState } from "react";
 import Modal from "../components/Modal";
 
-
-const grievancefields = [{
-  label: "Application/Reference",
-  type: "text",
-  variable: "application"
-}, {
-  label: "Name",
-  type: "text",
-  variable: "name"
-
-}, {
-  label: "Mobile",
-  type: "text",
-  variable: "mobile"
-
-}, {
-  label: "Address",
-  type: "text",
-  variable: "address"
-
-}, {
-  label: "Type of Work",
-  type: "text",
-  variable: "type"
-
-}, {
-  label: "Description",
-  type: "text",
-  variable: "description"
-
-}, {
-  label: "Priority",
-  type: "select",
-  variable: "priority",
-  selectOption: ["A", "B", "C"]
-
-
-}, {
-  label: "Special Instruction",
-  type: "text",
-  variable: "instruction"
-
-}, {
-  label: "Date",
-  type: "date",
-  variable: "date"
-}, {
-  label: "Initiator",
-  type: "select",
-  variable: "Initiator",
-  selectOption: ["A", "B", "C"]
-},{
-  label: "Currently Pending with",
-  type: "select",
-  variable: "currentStatus",
-  selectOption: ["A", "B", "C"]
-},{
-  label: "Received from",
-  type: "select",
-  variable: "ReceivedFrom",
-  selectOption: ["A", "B", "C"]
-},
-{
-  label: "Forwarded to",
-  type: "select",
-  variable: "ForwardedTo",
-  selectOption: ["A", "B", "C"]
-},
-{
-  label: "Current Status",
-  type: "select",
-  variable: "current Status",
-  selectOption: ["A", "B", "C"]
-}
-]
+const grievancefields = [
+  {
+    label: "Application/Reference",
+    type: "text",
+    variable: "application",
+  },
+  {
+    label: "Name",
+    type: "text",
+    variable: "name",
+  },
+  {
+    label: "Mobile",
+    type: "text",
+    variable: "mobile",
+  },
+  {
+    label: "Address",
+    type: "text",
+    variable: "address",
+  },
+  {
+    label: "Type of Work",
+    type: "text",
+    variable: "type",
+  },
+  {
+    label: "Description",
+    type: "text",
+    variable: "description",
+  },
+  {
+    label: "Priority",
+    type: "select",
+    variable: "priority",
+    selectOption: ["A", "B", "C"],
+  },
+  {
+    label: "Special Instruction",
+    type: "text",
+    variable: "instruction",
+  },
+  {
+    label: "Date",
+    type: "date",
+    variable: "date",
+  },
+  {
+    label: "Initiator",
+    type: "select",
+    variable: "Initiator",
+    selectOption: ["A", "B", "C"],
+  },
+  {
+    label: "Currently Pending with",
+    type: "select",
+    variable: "currentStatus",
+    selectOption: ["A", "B", "C"],
+  },
+  {
+    label: "Received from",
+    type: "select",
+    variable: "ReceivedFrom",
+    selectOption: ["A", "B", "C"],
+  },
+  {
+    label: "Forwarded to",
+    type: "select",
+    variable: "ForwardedTo",
+    selectOption: ["A", "B", "C"],
+  },
+  {
+    label: "Current Status",
+    type: "select",
+    variable: "current Status",
+    selectOption: ["A", "B", "C"],
+  },
+];
 const summaryCards = [
   {
     label: "Due today",
@@ -130,15 +133,13 @@ const nscProjects = [
 
 export const Dashboard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [grievanceData, setGrievanceData] = useState([])
+  const [grievanceData, setGrievanceData] = useState([]);
   return (
     <main className="min-h-screen bg-canvas px-4 py-6 text-slate-950 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <header className="flex flex-col gap-4 border-b border-subtle pb-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="text-sm font-medium text-ops-primary">
-              Utility Ops
-            </p>
+            <p className="text-sm font-medium text-ops-primary">Utility Ops</p>
             <h1 className="mt-2 text-3xl font-semibold tracking-normal text-slate-950">
               Utility Ops Dashboard
             </h1>
@@ -227,9 +228,7 @@ export const Dashboard = () => {
                     <td className="px-5 py-4 text-slate-600">
                       {project.owner}
                     </td>
-                    <td className="px-5 py-4 text-slate-600">
-                      {project.due}
-                    </td>
+                    <td className="px-5 py-4 text-slate-600">{project.due}</td>
                     <td className="px-5 py-4">
                       <span
                         className={`rounded px-2.5 py-1 text-xs font-semibold ${project.statusClass}`}
@@ -290,9 +289,7 @@ export const Dashboard = () => {
           </label>
 
           <label className="block">
-            <span className="text-sm font-medium text-slate-700">
-              Due date
-            </span>
+            <span className="text-sm font-medium text-slate-700">Due date</span>
             <input
               className="mt-2 h-11 w-full rounded border border-subtle bg-white px-3 text-sm outline-none transition focus:border-ops-primary focus:ring-3 focus:ring-sky-100"
               type="date"
