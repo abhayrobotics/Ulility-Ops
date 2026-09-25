@@ -1,7 +1,14 @@
 import { useState } from "react";
 import Modal from "../components/Modal";
 
-const grievancefields = [
+type Field = {
+  label: string;
+  type: string;
+  variable: string;
+  selectOption?: string[];
+};
+
+const grievanceFields: Field[] = [
   {
     label: "Application/Reference",
     type: "text",
@@ -44,42 +51,43 @@ const grievancefields = [
     variable: "instruction",
   },
   {
-    label: "Date",
+    label: "Due Date",
     type: "date",
     variable: "date",
   },
-  {
-    label: "Initiator",
-    type: "select",
-    variable: "Initiator",
-    selectOption: ["A", "B", "C"],
-  },
-  {
-    label: "Currently Pending with",
-    type: "select",
-    variable: "currentStatus",
-    selectOption: ["A", "B", "C"],
-  },
-  {
-    label: "Received from",
-    type: "select",
-    variable: "ReceivedFrom",
-    selectOption: ["A", "B", "C"],
-  },
-  {
-    label: "Forwarded to",
-    type: "select",
-    variable: "ForwardedTo",
-    selectOption: ["A", "B", "C"],
-  },
-  {
-    label: "Current Status",
-    type: "select",
-    variable: "current Status",
-    selectOption: ["A", "B", "C"],
-  },
+  // {
+  //   label: "Initiator",
+  //   type: "select",
+  //   variable: "Initiator",
+  //   selectOption: ["A", "B", "C"],
+  // },
+  // {
+  //   label: "Currently Pending with",
+  //   type: "select",
+  //   variable: "currentStatus",
+  //   selectOption: ["A", "B", "C"],
+  // },
+  // {
+  //   label: "Received from",
+  //   type: "select",
+  //   variable: "ReceivedFrom",
+  //   selectOption: ["A", "B", "C"],
+  // },
+  // {
+  //   label: "Forwarded to",
+  //   type: "select",
+  //   variable: "ForwardedTo",
+  //   selectOption: ["A", "B", "C"],
+  // },
+  // {
+  //   label: "Current Status",
+  //   type: "select",
+  //   variable: "current Status",
+  //   selectOption: ["A", "B", "C"],
+  // },
 ];
-const summaryCards = [
+type card = { label: string; value: string; helper: string; color: string };
+const summaryCards: card[] = [
   {
     label: "Due today",
     value: "08",
@@ -244,6 +252,7 @@ export const Dashboard = () => {
         </section>
       </div>
 
+      {/* MOdal */}
       <Modal
         footer={
           <>
@@ -264,46 +273,31 @@ export const Dashboard = () => {
         }
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        title="Add New Project"
+        title="Add a new Grievance"
       >
         <form className="grid gap-4 sm:grid-cols-2">
-          {}
-          <label className="block sm:col-span-2">
-            <span className="text-sm font-medium text-slate-700">
-              Application no. / Reference
-            </span>
-            <input
-              className="mt-2 h-11 w-full rounded border border-subtle bg-white px-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-ops-primary focus:ring-3 focus:ring-sky-100"
-              placeholder="Enter Application no."
-              type="text"
-            />
-          </label>
-
-          <label className="block">
-            <span className="text-sm font-medium text-slate-700">Owner</span>
-            <input
-              className="mt-2 h-11 w-full rounded border border-subtle bg-white px-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-ops-primary focus:ring-3 focus:ring-sky-100"
-              placeholder="Owner name"
-              type="text"
-            />
-          </label>
-
-          <label className="block">
-            <span className="text-sm font-medium text-slate-700">Due date</span>
-            <input
-              className="mt-2 h-11 w-full rounded border border-subtle bg-white px-3 text-sm outline-none transition focus:border-ops-primary focus:ring-3 focus:ring-sky-100"
-              type="date"
-            />
-          </label>
-
-          <label className="block sm:col-span-2">
-            <span className="text-sm font-medium text-slate-700">Status</span>
-            <select className="mt-2 h-11 w-full rounded border border-subtle bg-white px-3 text-sm outline-none transition focus:border-ops-primary focus:ring-3 focus:ring-sky-100">
-              <option>Due today</option>
-              <option>Overdue</option>
-              <option>Upcoming</option>
-            </select>
-          </label>
+          {grievanceFields.map((item) => {
+            return (
+              <label className="block sm:col-span-2">
+                <span className="text-sm font-medium text-slate-700">
+                  {item.label}
+                </span>
+                {item.type == "select" ? (
+                  <select className="mt-2 h-11 w-full rounded border border-subtle bg-white px-3 text-sm outline-none transition focus:border-ops-primary focus:ring-3 focus:ring-sky-100">
+                    {item?.selectOption?.map((option1) => (
+                      <option>{option1}</option>
+                    ))}
+                  </select>
+                ) : (
+                  <input
+                    className="mt-2 h-11 w-full rounded border border-subtle bg-white px-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-ops-primary focus:ring-3 focus:ring-sky-100"
+                    placeholder={`Enter the ${item.label}`}
+                    type={item.type}
+                  />
+                )}
+              </label>
+            );
+          })}
         </form>
       </Modal>
     </main>

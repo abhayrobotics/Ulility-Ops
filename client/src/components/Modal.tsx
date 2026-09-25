@@ -19,7 +19,7 @@ const Modal = ({ children, footer, isOpen, onClose, title }: ModalProps) => {
       className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/45 px-4 py-6"
       role="dialog"
     >
-      <div className="w-full max-w-xl overflow-hidden rounded border border-subtle bg-surface shadow-xl">
+      <div className="w-full max-w-xl  max-h-11/12 overflow-hidden rounded border border-subtle bg-surface shadow-xl overflow-y-scroll">
         <div className="flex items-center justify-between gap-4 border-b border-subtle px-5 py-4">
           <h2 className="text-lg font-semibold text-slate-950">{title}</h2>
           <button
@@ -32,7 +32,7 @@ const Modal = ({ children, footer, isOpen, onClose, title }: ModalProps) => {
           </button>
         </div>
 
-        <div className="px-5 py-5">{children}</div>
+        <div className="px-5 py-5  ">{children}</div>
 
         {footer ? (
           <div className="flex items-center justify-end gap-3 border-t border-subtle bg-slate-50 px-5 py-4">
