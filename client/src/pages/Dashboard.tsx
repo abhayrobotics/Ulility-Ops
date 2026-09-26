@@ -101,7 +101,7 @@ export const Dashboard = () => {
                   <tr className="hover:bg-slate-50" key={project.name}>
                     <td className="px-5 py-4 font-medium text-slate-950">
                       {project.name}
-                    </td>
+                     </td>
                     <td className="px-5 py-4 text-slate-600">
                       {project.owner}
                     </td>
@@ -158,7 +158,7 @@ export const Dashboard = () => {
                     ))}
                   </select>
                 ) : (
-                  <input onChange={(e) => handleChange(item.variable, e.target.value)} value={ grievanceData[]}
+                  <input onChange={(e) => handleChange(item.variable, e.target.value)} value={ grievanceData[item.variable] }
                     className="mt-2 h-8 w-full rounded border border-subtle bg-white px-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-ops-primary focus:ring-3 focus:ring-sky-100"
                     placeholder={`Enter the ${item.label}`}
                     type={item.type}
