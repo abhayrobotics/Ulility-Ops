@@ -32,7 +32,7 @@ const Modal = ({ children, footer, isOpen, onClose, title }: ModalProps) => {
           </button>
         </div>
 
-        <div className="px-5 py-5  ">{children}</div>
+        <div className="px-5 py-2  ">{children}</div>
 
         {footer ? (
           <div className="flex items-center justify-end gap-3 border-t border-subtle bg-slate-50 px-5 py-4">
